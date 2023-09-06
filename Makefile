@@ -5,10 +5,12 @@ CCFLAGS=-nostdlib -static
 prepare:
 	sudo apt install gcc-mips-linux-gnu qemu-user
 
-all: prepare hello.o hello
+all: prepare build 
 
 run:
 	./src/hello
+
+build: hello.o hello
 
 hello: src/hello.o
 	$(CC) src/hello.o -o src/hello $(CCFLAGS) 
